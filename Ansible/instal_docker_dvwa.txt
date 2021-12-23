@@ -1,0 +1,32 @@
+---
+   - Install dvwa using docker
+     hosts: webservers
+     become: true
+     tasks:
+
+        - name: Install docker.io
+          apt:
+           name: docker.io
+           state: present
+
+        - name: Install python3-pip
+          apt:
+           name: python3-pip
+           state: present
+
+        - name: pip docker
+          pip:
+           name: docker
+           state: present
+
+        - name: download and start docker container
+          docker_container
+           name: cyberxsecurity/dvwa
+           state: started
+           restart_policy: always
+           published_ports: 80:80
+
+        -name: Enable docker service
+         systemd:
+           name: docker
+           enabled: yes
