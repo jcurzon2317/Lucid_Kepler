@@ -98,7 +98,7 @@ SSH into the control node and follow the steps below:
 - Update the configuration file to include the appropriate remote_user and then update the hosts file for the appropriate [Webservers] and [ELK] servers private IP addresses.
 - Run the playbook, and navigate to the server (Webserver or ELK server, whichever you were running playbooks for) to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
+
 - _Which file is the playbook? Where do you copy it? The playbook files are as follows: 
 - Docker/Ansible installer: install_docker_dvwa.yml
 - Filebeat: filebeat-playbook.yml
