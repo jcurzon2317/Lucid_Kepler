@@ -112,4 +112,18 @@ _TODO: Answer the following questions to fill in the blanks:_
  - To check if the ELK server is running, in a web browers navigate to (publicIP):5601/app/kibana. 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- Downlaod: git clone (URL)
+- Before running the playbooks, edit the ansible.cfg file. You need to change the remote_user on line 107 to your servers remote user name you previously assigned. Edfit the hosts file for the appropriate private IP addresses/
+- nano ansible.cfg
+- nano hosts
+- Run playbook: ansible-playbook ./(filepath)
+	For my setup, I have everything saved to the file path /etc/ansible and within that directory I have a files folder and a roles folder. 
+	The filebeat-config and metrioc-beat-config go in the files directory, so the playbook know where the source is to copy them to the destination computers.
+	The roles folder has the playbooks in them for organizational purposes.
+	When in the directory they are saved to, run:
+	ansible-playbook ./install_docker_dvwa.yml
+	anisble-playbook ./install_ELK.yml
+	ansible-playbook ./filebeat-playbook.yml
+	ansible-playbook ./metricbeat-playbook.yml
+-
 
