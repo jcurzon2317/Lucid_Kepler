@@ -3,8 +3,9 @@
 The files in this repository were used to configure the network depicted below.
 
 https://github.com/jcurzon2317/Lucid_Kepler/blob/main/Diagrams/Network_Diagram.drawio
+https://drive.google.com/file/d/1hrtEZqj0Gm896VXj3x2RpwpxT0fr7dep/view?usp=sharing
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook files may be used to install only certain pieces of it, such as Filebeat.
 
   - _Lucid_Kepler._
 
@@ -75,7 +76,8 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-!C:\Users\jcurz\Lucid_Kepler\Ansible\docker_ps_output.png(Images/docker_ps_output.png)
+https://github.com/jcurzon2317/Lucid_Kepler/blob/main/Ansible/Images/docker_ps_output.png
+https://drive.google.com/file/d/17KrrVUUuoNeTK-2RJdB3ee7sVVtqTz5u/view?usp=sharing
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -112,8 +114,8 @@ SSH into the control node and follow the steps below:
  - To check if the ELK server is running, in a web browers navigate to (publicIP):5601/app/kibana. 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-- Downlaod: git clone (URL)
-- Before running the playbooks, edit the ansible.cfg file. You need to change the remote_user on line 107 to your servers remote user name you previously assigned. Edfit the hosts file for the appropriate private IP addresses/
+- Downlaod: git clone https://github.com/jcurzon2317/Lucid_Kepler
+- Before running the playbooks, edit the ansible.cfg file. You need to change the remote_user on line 107 to your servers remote user name you previously assigned. Edit the hosts file for the appropriate private IP addresses/
 - nano ansible.cfg
 - nano hosts
 - Run playbook: ansible-playbook ./(filepath)
