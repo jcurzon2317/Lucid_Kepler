@@ -52,16 +52,17 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 Machines within the network can only be accessed by other computers onn the network.
 - Web1,Web2,Web3 all can send data over port 9200 to the ELk_VM
 - The Jump Box can access any computer on the Network
+-The load balancer forwards to one of three Web VMs running DVWA
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses       |
-|----------|---------------------|----------------------------|
-| Jump Box | Yes/No              |   72.19.130.229            |
-|  Web1    | No                  | 10.0.0.1-254 10.1.0.1-254  |
-|  Web2    | No                  | 10.0.0.1-254 10.1.0.1-254  |
-|  Web3    | No                  | 10.0.0.1-254 10.1.0.1-254  |
-|  ELK_VM  | No                  | 10.0.0.1-254 10.1.0.1-254  |
+| Name     | Publicly Accessible     | Allowed IP Addresses       |
+|----------|-------------------------|----------------------------|
+| Jump Box | Yes/No                  |   72.19.130.229            |
+|  Web1    |Yes through Load Balancer| 10.0.0.1-254 10.1.0.1-254  |
+|  Web2    |Yes through Load Balancer| 10.0.0.1-254 10.1.0.1-254  |
+|  Web3    |Yes through Load Balancer| 10.0.0.1-254 10.1.0.1-254  |
+|  ELK_VM  | No                      | 10.0.0.1-254 10.1.0.1-254  |
 
 
 ### Elk Configuration
@@ -113,8 +114,21 @@ SSH into the control node and follow the steps below:
  _Which URL do you navigate to in order to check that the ELK server is running?
  - To check if the ELK server is running, in a web browers navigate to (publicIP):5601/app/kibana. 
 
+### Testing
+- *** SSH Login Attempts 
+-First I ran a continuing ssh login attempt using the command "watch -n 1 ssh azadmin@10.0.0.5" to verify Kibana was picking up the login attempts. I did this from the Jump Box but not inside the container. It picked up the attempts displaying the message "Connection closed by authenticating user azadmin 10.0.0.4 port 56200 [preauth]"  but the port number would change. Trying this on the other two Web VMs showed the same messages.
+-*** CPU Stress Test
+- Logged into each VM and did 'sudo apt install stress' then ran 'sudo stress --cpu-1 to stress test the VM. Screen shots in [...Lucid_Kepler/Ansible/Images]
+[...Lucid_Kepler/Ansible/Images/CPU_Stress1.png][...Lucid_Kepler/Ansible/Images/CPU_Stress2.png][...Lucid_Kepler/Ansible/Images/CPU_Stress3.png] Each had their virtual CPUs maxed out but after stopping the stress they went back to normal operating levels.
+-*** Wget
+-Used the 'watch -n 1 wget 10.0.0.5' to test the network by running a wget request and generating an index.html file every 1 second(s). It affected both inbound and outbound traffic on the VM. Pairing it with cancatonating I was able to do it on several VMs at once 'wget 10.0.0.5 ; wget 10.0.0.6 ; wget 10.0.0.8'. This generated a lot of files, so to remove them all I used 'rm index.html ; rm index.html.*' in a single line on the terminal. Running 'wget -O /dev/null 10.0.0.5' allowed my to run wget without generating an index.html file with the option -O being the option for output and the /dev/null filepath to a null or void section that prevents saving any output. Example: With output 'wget 10.0.0.5 ; wget 10.0.0.6 ; wget 10.0.0.8' without output 'wget -O /dev/null 10.0.0.5 ; wget -O /dev/null 10.0.0.6 ; wget -O /dev/null 10.0.0.8'
+
+-
+
+
+
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-- Downlaod: git clone https://github.com/jcurzon2317/Lucid_Kepler
+- Download: git clone https://github.com/jcurzon2317/Lucid_Kepler
 - Before running the playbooks, edit the ansible.cfg file. You need to change the remote_user on line 107 to your servers remote user name you previously assigned. Edit the hosts file for the appropriate private IP addresses/
 - nano ansible.cfg
 - nano hosts
