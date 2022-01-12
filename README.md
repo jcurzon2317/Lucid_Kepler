@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-https://github.com/jcurzon2317/Lucid_Kepler/blob/main/Diagrams/Network_Diagram.drawio
+https://github.com/jcurzon2317/Lucid_Kepler/blob/main/Diagrams/Network_Diagram.drawio.png
 https://drive.google.com/file/d/1hrtEZqj0Gm896VXj3x2RpwpxT0fr7dep/view?usp=sharing
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook files may be used to install only certain pieces of it, such as Filebeat.
