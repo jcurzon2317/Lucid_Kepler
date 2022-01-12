@@ -17,6 +17,9 @@ This document contains the following details:
   - Machines Being Monitored
 - How to Use the Ansible Build
 
+### Diagram 
+https://github.com/jcurzon2317/Lucid_Kepler/blob/main/Diagrams/Network_Diagram.drawio.png
+https://drive.google.com/file/d/1J_1URhqTgpaRfA_N-nvWosqtNTaAt3QJ/view?usp=sharing
 
 ### Description of the Topology
 
