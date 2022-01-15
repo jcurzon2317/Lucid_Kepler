@@ -16,9 +16,6 @@ This document contains the following details:
   - Machines Being Monitored
 - How to Use the Ansible Build
 
-### Diagram 
-https://github.com/jcurzon2317/Lucid_Kepler/blob/main/Diagrams/Network_Diagram.drawio.png
-https://drive.google.com/file/d/1J_1URhqTgpaRfA_N-nvWosqtNTaAt3QJ/view?usp=sharing
 
 ### Description of the Topology
 
@@ -79,8 +76,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-https://github.com/jcurzon2317/Lucid_Kepler/blob/main/Ansible/Images/docker_ps_output.png
-https://drive.google.com/file/d/17KrrVUUuoNeTK-2RJdB3ee7sVVtqTz5u/view?usp=sharing
+<img src="Ansible/Images/docker_ps_output.png" />
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
